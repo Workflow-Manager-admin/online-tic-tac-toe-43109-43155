@@ -1,0 +1,193 @@
+/* Theme colors for Tic Tac Toe app based on request */
+:root {
+  --primary: #1976D2;
+  --secondary: #424242;
+  --accent: #FFEB3B;
+  --ttt-bg: #fff;
+  --ttt-board-bg: #f8f9fa;
+  --ttt-border: #e0e0e0;
+  --ttt-status: #282c34;
+  --ttt-status-accent: #1976D2;
+  --ttt-restart-bg: #1976D2;
+  --ttt-restart-hover: #1358a5;
+  --ttt-restart-text: #fff;
+}
+
+/* Reset and base app styling */
+.ttt-app-bg {
+  min-height: 100vh;
+  min-width: 100vw;
+  box-sizing: border-box;
+  background: var(--ttt-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ttt-main-container {
+  background: var(--ttt-board-bg);
+  border-radius: 16px;
+  padding: 32px 24px 24px 24px;
+  box-shadow: 0 6px 36px 0 rgba(60,82,153,0.06), 0 1.5px 6px 0 rgba(60,82,153,0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px;
+  min-height: 450px;
+}
+
+.ttt-player-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.ttt-player-label {
+  border-radius: 4px;
+  padding: 2px 18px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  background: transparent;
+  opacity: 0.5;
+  font-size: 1.5rem;
+  transition: background 0.2s, opacity 0.2s;
+  border: none;
+}
+
+.ttt-player-label.ttt-active {
+  background: var(--accent);
+  opacity: 1;
+  color: var(--primary) !important;
+}
+
+.ttt-vs {
+  font-weight: bold;
+  font-size: 1.18rem;
+  color: var(--secondary);
+  margin: 0 8px;
+  opacity: 0.5;
+  vertical-align: middle;
+}
+
+.ttt-board-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background: transparent;
+}
+.ttt-board-row {
+  display: flex;
+}
+.ttt-square {
+  width: 72px;
+  height: 72px;
+  background: #fff;
+  border: 2.5px solid var(--ttt-border);
+  outline: none;
+  font-size: 2.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--primary);
+  margin: 0;
+  transition: background 0.18s, box-shadow 0.14s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  user-select: none;
+}
+.ttt-square[disabled], .ttt-square:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  background: #f4f4f4;
+}
+.ttt-square:focus {
+  outline: 2px solid var(--accent);
+}
+.ttt-square:hover:not(:disabled) {
+  background: var(--accent);
+  color: var(--secondary);
+}
+
+.ttt-status-controls {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.ttt-status-text {
+  margin-bottom: 15px;
+  font-size: 1.18rem;
+  color: var(--ttt-status);
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ttt-restart-btn {
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  background: var(--ttt-restart-bg);
+  color: var(--ttt-restart-text);
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 0;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(25, 118, 210, 0.1);
+  transition: background 0.14s, box-shadow 0.16s;
+  outline: none;
+}
+.ttt-restart-btn:hover, .ttt-restart-btn:focus {
+  background: var(--ttt-restart-hover);
+  box-shadow: 0 5px 24px 0 rgba(25, 118, 210, 0.13);
+}
+
+@media (max-width: 700px) {
+  .ttt-main-container {
+    min-width: unset;
+    padding: 18px 4vw 14px 4vw;
+  }
+  .ttt-square {
+    width: 19vw;
+    height: 19vw;
+    max-width: 76px;
+    max-height: 76px;
+    font-size: 2.0rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .ttt-main-container {
+    padding: 8px 2vw 10px 2vw;
+    min-height: 320px;
+  }
+  .ttt-square {
+    width: 28vw;
+    height: 28vw;
+    max-width: 64px;
+    max-height: 64px;
+    font-size: 1.3rem;
+  }
+  .ttt-player-label, .ttt-player-label.ttt-active {
+    font-size: 1.09rem;
+    padding: 1px 12px;
+  }
+  .ttt-status-text {
+    font-size: 1.02rem;
+  }
+}
